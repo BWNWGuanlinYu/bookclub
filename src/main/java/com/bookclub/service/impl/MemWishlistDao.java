@@ -9,6 +9,7 @@ import java.util.List;
 public class MemWishlistDao implements WishlistDao {
     private List<WishlistItem> wishlist;
 
+    // Constructor
     public MemWishlistDao() {
         wishlist = new ArrayList<>();
 
@@ -18,11 +19,19 @@ public class MemWishlistDao implements WishlistDao {
         this.wishlist.add(new WishlistItem("9780261102378", "The Return of the King"));
     }
 
+    /*
+        * List() method
+        * @param item
+     */
     @Override
     public List<WishlistItem> list() {
         return this.wishlist;
     }
 
+    /*
+        * find() method
+        * @param item
+     */
     @Override
     public WishlistItem find(String key) {
         for (WishlistItem item : this.wishlist) {

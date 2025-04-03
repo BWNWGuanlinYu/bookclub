@@ -14,7 +14,12 @@ import java.util.List;
 @Controller
 @RequestMapping("/wishlist")
 public class WishlistController {
-
+    /**
+     * It lists all the wishlist items
+     *
+     * @param model to be used in the view
+     * @return The view name of wishlist list
+     */
     @RequestMapping(method = RequestMethod.GET)
     public String showWishlist(Model model) {
         MemWishlistDao wishlistDao = new MemWishlistDao();
@@ -25,6 +30,12 @@ public class WishlistController {
         return "wishlist/list";
     }
 
+    /**
+     * The view for the wishlist form
+     *
+     * @param model to be used in the view
+     * @return The view name of wishlist form
+     */
     @RequestMapping(method = RequestMethod.GET, path = "/new")
     public String wishlistForm(Model model) {
         model.addAttribute("wishlistItem", new WishlistItem());
@@ -32,6 +43,13 @@ public class WishlistController {
         return "wishlist/new";
     }
 
+    /**
+     * The method validates the input and, if valid, redirects to the wishlist page
+     *
+     * @param wishlistItem The wishlist item to be added
+     * @param bindingResult The result of the validation
+     * @return The view name to redirect to
+     */
     @RequestMapping(method = RequestMethod.POST)
     public String addWishlistItem(@Valid WishlistItem wishlistItem, BindingResult bindingResult) {
         System.out.println(wishlistItem.toString());
