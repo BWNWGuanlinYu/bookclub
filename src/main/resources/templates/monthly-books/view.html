@@ -41,14 +41,12 @@
 
                     <div class="mb-3">
                         <h5>Number of Pages</h5>
-                        <p class="card-text" th:text="${book.getNumberOfPages()}">300</p>
+                        <p class="card-text" th:text="${book.getNumOfPages() > 0 ? book.getNumOfPages() : 'Not available'}">300</p>
                     </div>
 
-                    <div>
-                        <strong>Authors:</strong>
-                        <ul th:each="author : ${book.getAuthors()}">
-                            <li th:text="${author}">Author Name</li>
-                        </ul>
+                    <div class="mb-3">
+                        <h5>Web Link</h5>
+                        <a th:href="${book.getInfoUrl()}" target="_blank" th:text="${book.getInfoUrl()}">Web Link</a>
                     </div>
                 </div>
             </div>

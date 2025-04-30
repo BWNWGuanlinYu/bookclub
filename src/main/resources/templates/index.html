@@ -9,34 +9,34 @@
           crossorigin="anonymous">
 </head>
 <body>
-    <div th:insert="~{fragments/header :: header}"></div>
-    <main>
-        <section class="py-5 text-center container">
-            <div class="row py-lg-5">
-                <h1 class="fw-light">Book Club</h1>
-                <p class="lead text-muted">
-                    Welcome to the Book Club app, your "one-stop-shop" for all of your book club needs.
-                    Below you will find a list this months top 10 favorite books.
-                    Select the book to see it's details.
-                </p>
-            </div>
-        </section>
+<div th:insert="~{fragments/header :: header}"></div>
+<main>
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <h1 class="fw-light">Book Club</h1>
+            <p class="lead text-muted">
+                Welcome to the Book Club app, your "one-stop-shop" for all of your book club needs.
+                Below you will find a list this months top 10 favorite books.
+                Select the book to see its details.
+            </p>
+        </div>
+    </section>
 
-        <div class="album py-5 bg-light">
-            <div class="container">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <div class="col" th:each="book : ${books}">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    <span th:text="${book.getTitle()}"></span>
-                                    <br />
-                                    <small class="text-muted"><em th:text="${book.getDescription()}"></em></small>
-                                </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <a href="#" th:href="@{/{id}(id=${book.getIsbn()})}" class="btn btn-sm btn-outline-secondary">View</a>
-                                    </div>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col" th:each="book : ${books}">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <p class="card-text">
+                                <span th:text="${book.getTitle()}"></span>
+                                <br />
+                                <small class="text-muted">ISBN: <em th:text="${book.getIsbn()}"></em></small>
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="#" th:href="@{/{id}(id=${book.getIsbn()})}" class="btn btn-sm btn-outline-secondary">View</a>
+                                    <a href="#" th:href="${book.getInfoUrl()}" target="_blank" class="btn btn-sm btn-outline-primary">Web Link</a>
                                 </div>
                             </div>
                         </div>
@@ -44,9 +44,9 @@
                 </div>
             </div>
         </div>
-
-    </main>
-    <div th:insert="~{fragments/footer :: footer}"></div>
-    <div th:insert="~{fragments/scriptFooter :: scriptFooter}"></div>
+    </div>
+</main>
+<div th:insert="~{fragments/footer :: footer}"></div>
+<div th:insert="~{fragments/scriptFooter :: scriptFooter}"></div>
 </body>
 </html>

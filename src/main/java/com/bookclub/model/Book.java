@@ -6,8 +6,8 @@ public class Book {
     private String isbn;
     private String title;
     private String description;
-    private int numberOfPages;
-    private List<String> authors;
+    private int numOfPages;
+    private String infoUrl;
 
     //default constructor
     public Book() {
@@ -18,15 +18,21 @@ public class Book {
      * @param isbn
      * @param title
      * @param description
-     * @param numberOfPages
-     * @param authors
+     * @param numOfPages
+     * @param infoUrl
      */
-    public Book(String isbn, String title, String description, int numberOfPages, List<String> authors) {
+    public Book(String isbn, String title, String description, String infoUrl, int numOfPages) {
         this.isbn = isbn;
         this.title = title;
         this.description = description;
-        this.numberOfPages = numberOfPages;
-        this.authors = authors;
+        this.numOfPages = numOfPages;
+        this.infoUrl = infoUrl;
+    }
+
+    public Book(String isbn, String title, String infoUrl) {
+        this.isbn = isbn;
+        this.title = title;
+        this.infoUrl = infoUrl;
     }
 
     //getters and setters
@@ -54,27 +60,28 @@ public class Book {
         this.description = description;
     }
 
-    public int getNumberOfPages() {
-        return numberOfPages;
+    public int getNumOfPages() {
+        return numOfPages;
     }
 
-    public void setNumberOfPages(int numberOfPages) {
-        this.numberOfPages = numberOfPages;
+    public void setNumOfPages(int numberOfPages) {
+        this.numOfPages = numOfPages;
     }
 
-    public List<String> getAuthors() {
-        return authors;
+    public String getInfoUrl() {
+        return infoUrl;
     }
 
-    public void setAuthors(List<String> authors) {
-        this.authors = authors;
+    public void setInfoUrl(String infoUrl) {
+        this.infoUrl = infoUrl;
     }
 
     //toString method
     @Override
     public String toString() {
         return "Book{" +
-                "isbn='" + isbn + ", title='" + title + ", description='" + description + ", numberOfPages=" + numberOfPages + ", authors=" + authors +
+                "isbn='" + isbn + "', title='" + title + "', description='" + description +
+                "', infoUrl='" + infoUrl + "', numOfPages=" + numOfPages +
                 '}';
     }
 }

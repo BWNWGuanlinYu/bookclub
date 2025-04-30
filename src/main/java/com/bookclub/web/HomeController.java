@@ -1,7 +1,7 @@
 package com.bookclub.web;
 
 import com.bookclub.model.Book;
-import com.bookclub.service.impl.MemBookDao;
+import com.bookclub.service.impl.RestBookDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +15,7 @@ import java.util.List;
 public class HomeController {
     @RequestMapping(method = RequestMethod.GET)
     public String showHome(Model model) {
-        MemBookDao bookDao = new MemBookDao();
+        RestBookDao bookDao = new RestBookDao();
         List<Book> books = bookDao.list();
 
         for (Book book : books) {
@@ -29,10 +29,15 @@ public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET, path = "/{id}")
     public String showHome(@PathVariable("id") String id, Model model) {
+        // Ignore favicon.ico requests (notice return in the terminal)
+        if (id.equals("favicon.ico")) {
+            return "redirect:/";
+        }
+
         String isbn = id;
         System.out.println(isbn);
 
-        MemBookDao bookDao = new MemBookDao();
+        RestBookDao bookDao = new RestBookDao();
         Book book = bookDao.find(isbn);
 
         System.out.println(book.toString());
@@ -50,6 +55,4 @@ public class HomeController {
     public String showContactUs(Model model) {
         return "contact";
     }
-
-
 }
