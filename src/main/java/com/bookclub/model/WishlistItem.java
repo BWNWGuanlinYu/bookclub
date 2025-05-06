@@ -16,6 +16,8 @@ public class WishlistItem {
     @NotEmpty(message = "Title is a required field.")
     private String title;
 
+    private String username;
+
     // default constructor
     public WishlistItem() {
     }
@@ -51,9 +53,17 @@ public class WishlistItem {
         this.title = title;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     // toString method
     @Override
     public String toString() {
-        return "WishlistItem{id=" + id + ", isbn=" + isbn + ", title=" + title + "}";
+        return "WishlistItem{id=" + id + ", isbn=" + isbn + ", title=" + title + ", username=" + username + "}";
     }
 }
