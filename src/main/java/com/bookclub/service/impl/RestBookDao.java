@@ -50,10 +50,8 @@ public class RestBookDao implements BookDao {
     }
 
     @Override
-    public List<Book> list() {
+    public List<Book> list(String isbnString) {
         List<Book> books = new ArrayList<>();
-
-        String isbnString = "ISBN:9781546171461,ISBN:9780593100912,ISBN:9781250759368,ISBN:9781612680194,ISBN:9780593975091";
 
         Object document = getBooksDoc(isbnString);
 

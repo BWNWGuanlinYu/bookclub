@@ -4,7 +4,7 @@
 <body>
 <header th:fragment="header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Bookclub</a>
+        <a class="navbar-brand" href="/" th:href="@{/}">Bookclub</a>
         <button class="navbar-toggler" type="button"
                 data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false"
@@ -21,6 +21,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/wishlist" th:href="@{/wishlist}">Wishlist</a>
+                </li>
+                <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                    <a class="nav-link" href="/monthly-books/list" th:href="@{/monthly-books/list}">Monthly Books</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
