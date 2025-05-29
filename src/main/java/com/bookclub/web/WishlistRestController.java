@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api/wishlist", produces = "application/json")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://guanlin-bookclub.onrender.com/")
 public class WishlistRestController {
 
     private WishlistDao wishlistDao;
