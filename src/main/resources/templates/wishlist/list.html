@@ -41,7 +41,7 @@
 
     const http = new HttpClient();
 
-    http.get('${window.location.origin}').then(res => {
+    http.get(`${window.location.origin}/api/wishlist`).then(res => {
       console.log(res);
       document.getElementById("wishlist").innerHTML = buildTable(res);
     }).catch(e => {
